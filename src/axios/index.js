@@ -1,12 +1,14 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import env from '../env';
 
 Vue.use(VueAxios, axios);
 
 const serve = axios.create({
   // 根据前端的跨域方式做调整
-  baseURL: '/api',
+  baseURL: env.beasURL,
+  // baseURL: '/api',
   // 设置超时时间
   timeout: 5000,
 });
