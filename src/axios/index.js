@@ -14,7 +14,7 @@ const serve = axios.create({
 });
 
 // 接口错误拦截
-axios.interceptors.respose.use((response) => {
+axios.interceptors.request.use((response) => {
   const res = response.data;
   let data;
   if (res.status === 0) {
