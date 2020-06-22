@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import storage from '../storage/index';
 
 export default {
   name: 'Index',
   mounted() {
-    // storage.setItem('userName', { a: 1 }, 'user');
-    storage.clear('a', 'user');
+    this.axios.get('/mock/user.json').then((res) => {
+      console.log(res);
+    });
   },
 };
 </script>

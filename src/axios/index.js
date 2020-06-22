@@ -14,19 +14,19 @@ const serve = axios.create({
 });
 
 // 接口错误拦截
-axios.interceptors.request.use((response) => {
-  const res = response.data;
-  let data;
-  if (res.status === 0) {
-    data = res.data;
-  } else if (res.status === 10) {
-    window.location.href = '/region';
-  } else {
-    // function alert( res.msg );
-    alert(res.msg);
-    // console.log();
-  }
-  return data;
-});
+// axios.interceptors.request.use((response) => {
+//   const res = response.data;
+//   let data;
+//   if (res.status === 0) {
+//     data = res.data;
+//   } else if (res.status === 10) {
+//     window.location.href = '/region';
+//   } else {
+//     // function alert( res.msg );
+//     alert(res.msg);
+//     // console.log();
+//   }
+//   return data;
+// });
 
 export default serve;
