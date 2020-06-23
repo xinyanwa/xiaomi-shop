@@ -9,7 +9,7 @@
 export default {
   name: 'Index',
   mounted() {
-    this.axios.get('/mock/user.json').then((res) => {
+    this.axios.get('/user/login').then((res) => {
       console.log(res);
     });
   },
