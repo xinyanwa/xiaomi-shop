@@ -8,7 +8,7 @@
         </a>
       </div>
       <div class="header-right">
-        <a href="javascript:void(0);">
+        <a href="javascript:void(0);" @click="goLoginInfo">
           <span>登录</span>
         </a>
         <a href="javascript:void(0);">
@@ -17,7 +17,7 @@
         <a href="javascript:void(0);">
           <span>消息通知</span>
         </a>
-        <a href="javascript:void(0);" class="shop-wrapper">
+        <a href="javascript:void(0);" class="shop-wrapper" @click="goCart">
           <i class="el-icon-shopping-cart-2 shop-icon"></i>
           <span class="shop-font">
             购物车 ({{shopNumber}})
@@ -111,6 +111,12 @@ export default {
       window.console.log(index);
       this.tabChilder = this.shopInfo[index];
       window.console.log(this.tabChilder);
+    },
+    goLoginInfo() {
+      this.$router.push('/user');
+    },
+    goCart() {
+      this.$router.push('/cart');
     },
   },
 };
@@ -264,7 +270,7 @@ export default {
           height: 0;
           left: 0;
           width: 100%;
-          box-shadow: 0 3px 4px rgba(0,0,0,.08);
+          // box-shadow: 0 3px 4px rgba(0,0,0,.08);
           transition: box-shadow .2s,height .3s;
           .shop-wrapper-info{
             width: $min-width;
