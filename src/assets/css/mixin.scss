@@ -1,0 +1,15 @@
+@mixin flex($hov:space-between, $col:center){
+    display: flex;
+    justify-content: $hov;
+    align-items: $col;
+}
+
+@mixin bgPosition($wd:0, $hg:0 ,$top:0, $left:0, $con:'', $bg:'') {
+    position: absolute;
+    top: $top;
+    left: $left;
+    content: $con;
+    background: url($bg) no-repeat 50% 50%;
+    width: $wd;
+    height: $hg;
+}

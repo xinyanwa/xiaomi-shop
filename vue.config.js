@@ -3,7 +3,7 @@ module.exports = {
     // 目标主机
     host: 'localhost',
     // 希望发布的端口号
-    props: 8080,
+    port: 8080,
     // proxy:{'/api':{}},代理器中设置/api,项目中请求路径为/api的替换为target
     // proxy: {
     //   '/api': {

@@ -1,11 +1,19 @@
+// 引入模块
 import Vue from 'vue';
+import { Icon } from 'element-ui';
 import App from './App.vue';
 import router from './router';
 import store from './store';
 import axios from './axios/index';
 import mock from './mock/index';
 
+// 引入全局样式
+import './assets/css/reset.scss';
+import './assets/css/config.scss';
+
 Vue.config.productionTip = false;
+
+Vue.use(Icon);
 
 new Vue({
   router,
