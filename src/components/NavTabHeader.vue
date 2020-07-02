@@ -42,9 +42,22 @@
         <li
         v-for="(item,index) in tabInfo"
         :key="index"
-        @mouseleave="hindList(index)" @mouseenter="showList(index)"
+        @mouseenter="shopReplace(index)"
         >
           <a href=""><p>{{item}}</p></a>
+          <div class="tab-shop">
+            <div class="shop-wrapper-info">
+              <ul>
+                <li v-for="(item, index) in tabChilder" :key="index">
+                  <div class="shop-img">
+                    <img :src="item.img" />
+                  </div>
+                  <div class="shop-info"><span>{{item.info}}</span></div>
+                  <div class="shop-mony"><span>{{item.mony}}</span></div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -57,24 +70,6 @@
         </div>
       </form>
     </div>
-  </div>
-  <div>
-    <div class="childer" :class="showShopList?'childer-animation-show':'.childer-animation-hidden'"
-    @mouseenter="showList(0)" @mouseleave="hindList(0)">
-        <ul>
-          <li v-for="(item, index) in tabChilder" :key="index">
-            <div class="childer-img">
-              <img :src="item.img" alt="">
-            </div>
-            <div class="childer-info">
-              <span>{{item.info}}</span>
-            </div>
-            <div class="childer-mony">
-              <span>{{item.mony}}</span>
-            </div>
-          </li>
-        </ul>
-      </div>
   </div>
 </div>
 </template>
@@ -97,19 +92,23 @@ export default {
       type: Number,
       default: 0,
     },
+    shopInfo: {
+      type: Array,
+      default: () => [
+        [
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3bf20f1df3f2e22c5b29ff07634f3c59.png?thumb=1&w=100&h=69&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=200&h=138&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=200&h=138&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=200&h=138&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/df9b3e7a562e02a33eb069b3f0119815.png?thumb=1&w=200&h=138', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/b02f50c9dd2e01c139a06a12502755ef.png?thumb=1&w=200&h=138', info: '小米10 青春版 5G', mony: '2099起' },
+        ],
+        [
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9ddc8849eaf164aac333bfd10627867f.png?thumb=1&w=200&h=138&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cfbedb76699240a6c9a3f875b930983c.png?thumb=1&w=200&h=138&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6a6548361871303764d6c66142074524.png?thumb=1&w=200&h=138&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0203f4e7dafcc0c9016a1b48556abf30.jpg?thumb=1&w=200&h=138&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/df9b3e7a562e02a33eb069b3f0119815.png?thumb=1&w=200&h=138', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/b02f50c9dd2e01c139a06a12502755ef.png?thumb=1&w=200&h=138', info: '小米10 青春版 5G', mony: '2099起' },
+        ],
+      ],
+    },
   },
   methods: {
-    showList(index) {
-      if (index === 0) {
-        this.showShopList = true;
-      }
+    shopReplace(index) {
       window.console.log(index);
-    },
-    hindList(index) {
-      if (index === 0) {
-        this.showShopList = false;
-      }
-      window.console.log(index);
+      this.tabChilder = this.shopInfo[index];
+      window.console.log(this.tabChilder);
     },
   },
 };
@@ -228,6 +227,7 @@ export default {
   }
   .tab-tab{
     width: 100%;
+    margin-left: 60px;
     ul{
       padding-left: 30px;
       padding-top: $fontK;
@@ -250,8 +250,61 @@ export default {
               color: $colorA;
             }
           }
+          .tab-shop{
+            visibility: visible;
+            height: 190px;
+          }
+        }
+        .tab-shop{
+          position: fixed;
+          top: 140px;
+          overflow: hidden;
+          height: 0;
+          left: 0;
+          width: 100%;
+          box-shadow: 0 3px 4px rgba(0,0,0,.08);
+          transition: box-shadow .2s,height .3s;
+          .shop-wrapper-info{
+            width: $min-width;
+            margin: 20px auto;
+            ul{
+              @include flex(space-around);
+              list-style: none;
+              width: $min-width;
+              margin: 0 auto;
+              padding: 30px 0 10px 0;
+              li{
+                text-align: center;
+                padding: 26px 10px 20px 10px;
+                .shop-img{
+                  border-right:1px solid $colorF;
+                  width: 160px;
+                  img{
+                    width: 100%;
+                  }
+                }
+                .shop-info{
+                  margin-top: 10px;
+                  span{
+                    color: #757575;
+                  }
+                }
+                .shop-mony{
+                  margin: 10px;
+                  span{
+                    color: $colorA;
+                  }
+                }
+                &:last-child{
+                  .childer-img{
+                    border-right: none;
+                }
+              }
+            }
+          }
         }
       }
+     }
     }
   }
   .tab-search{
@@ -296,66 +349,6 @@ export default {
       }
     }
   }
-}
-.childer{
-  position: absolute;
-  visibility: hidden;
-  left: 0;
-  top: 140px;
-  width: 100%;
-  border-top: 1px solid $colorF;
-  overflow: hidden;
-  box-shadow: 0 2px 0px rgba(0,0,0,.15);
-  animation: .5s;
-  ul{
-    @include flex(space-around);
-    list-style: none;
-    width: $min-width;
-    margin: 0 auto;
-    padding: 20px 0 10px 0;
-    li{
-      text-align: center;
-      .childer-img{
-        border-right:1px solid $colorF;
-        width: 160px;
-        img{
-          width: 100%;
-        }
-      }
-      .childer-info{
-        margin-top: 10px;
-        span{
-          color: #757575;
-        }
-      }
-      .childer-mony{
-        margin: 10px;
-        span{
-          color: $colorA;
-        }
-      }
-      &:last-child{
-        .childer-img{
-          border-right: none;
-        }
-      }
-    }
-  }
-}
-.childer-animation-show{
-  visibility: visible;
-  animation: mymove .5s linear;
-}
-@keyframes mymove {
-  0% {height: 0;}
-  100% {height: 205px;}
-}
-.childer-animation-hidden{
-  animation: myleve .5s linear;
-}
-@keyframes myleve {
-  0% {height: 205px;}
-  100% {height: 0;}
 }
 a{
   span:hover{
