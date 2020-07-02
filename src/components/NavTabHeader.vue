@@ -44,8 +44,8 @@
         :key="index"
         @mouseenter="shopReplace(index)"
         >
-          <a href=""><p>{{item}}</p></a>
-          <div class="tab-shop">
+          <a href=""><p>{{item.tabInfo}}</p></a>
+          <div class="tab-shop" v-show="item.tabShow">
             <div class="shop-wrapper-info">
               <ul>
                 <li v-for="(item, index) in tabChilder" :key="index">
@@ -81,7 +81,9 @@ export default {
     return {
       showShopList: false,
       left: ['小米商城', 'MIUI', '云服务', '金融'],
-      tabInfo: ['小米手机', 'Redmi红米', '电视', '笔记本'],
+      tabInfo: [
+        { tabInfo: '小米手机', tabShow: true }, { tabInfo: 'Redmi红米', tabShow: true }, { tabInfo: '电视', tabShow: false }, { tabInfo: '笔记本', tabShow: false },
+      ],
       tabChilder: [
         { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3bf20f1df3f2e22c5b29ff07634f3c59.png?thumb=1&w=100&h=69&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=200&h=138&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=200&h=138&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=200&h=138&f=webp&q=90', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/df9b3e7a562e02a33eb069b3f0119815.png?thumb=1&w=200&h=138', info: '小米10 青春版 5G', mony: '2099起' }, { img: 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/b02f50c9dd2e01c139a06a12502755ef.png?thumb=1&w=200&h=138', info: '小米10 青春版 5G', mony: '2099起' },
       ],
