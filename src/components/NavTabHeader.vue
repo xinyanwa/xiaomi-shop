@@ -123,8 +123,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/css/mixin.scss';
-@import '../assets/css/config.scss';
 
 .nav-header-wrapper {
   font-size: $fontK;
@@ -270,6 +268,8 @@ export default {
           height: 0;
           left: 0;
           width: 100%;
+          z-index: 999;
+          background: $colorG;
           // box-shadow: 0 3px 4px rgba(0,0,0,.08);
           transition: box-shadow .2s,height .3s;
           .shop-wrapper-info{

@@ -1,4 +1,15 @@
+const path = require('path');
+
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
+
 module.exports = {
+  lintOnSave: true,
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set('@', resolve('src'));
+  },
   devServer: {
     // 目标主机
     host: 'localhost',
@@ -19,5 +30,17 @@ module.exports = {
     //     },
     //   },
     // },
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        // @指向src目录
+        prependData: `
+                  @import '@/assets/css/config.scss';
+                  @import '@/assets/css/mixin.scss';
+                  @import '@/assets/css/reset.scss';  
+            `,
+      },
+    },
   },
 };
