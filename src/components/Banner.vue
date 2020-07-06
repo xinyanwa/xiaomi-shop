@@ -14,16 +14,16 @@
                            <span>{{item}}</span>
                            <i class="el-icon-arrow-right"></i>
                        </a>
-                       <div class="childer">
-                           <ul v-for="(item, index) in childer" :key="index">
-                               <li v-for="(info, number) in item" :key="number">
-                                   <a href="">
-                                       <img :src="info.img" alt="">
-                                       <span>{{info.title}}</span>
-                                   </a>
-                               </li>
-                           </ul>
-                       </div>
+                   </li>
+               </ul>
+           </div>
+           <div class="childer">
+               <ul v-for="(item, index) in childer" :key="index">
+                   <li v-for="(info, number) in item" :key="number">
+                       <a href="">
+                           <img :src="info.img" alt="">
+                           <span>{{info.title}}</span>
+                       </a>
                    </li>
                </ul>
            </div>
@@ -84,7 +84,24 @@ export default {
           { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
           { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
           { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+        ],
+        [
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+        ],
+        [
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
           { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
         ],
       ],
@@ -148,13 +165,41 @@ export default {
                                 color: #e0e0e0;
                             }
                         }
-                        .childer{
-                            position: absolute;
-                            @include flex();
-                            margin-left: 460px;
-                            ul{
-                                @include flex();
-                                flex-direction: column;
+                    }
+                }
+            }
+            .childer{
+                position: absolute;
+                top: 0;
+                left: 235px;
+                @include flex();
+                max-width: 992px;
+                height: 458px;
+                z-index: 99;
+                background: #fff;
+                box-shadow: 0 8px 16px rgba(0,0,0,.18);
+                ul{
+                    @include flex();
+                    flex-direction: column;
+                    width: 248px;
+                    height: 458px;
+                    li{
+                        @include flex();
+                        width: 100%;
+                        a{
+                            padding: 18px 20px;
+                            color: $colorB;
+                            @include flex(center);
+                            img{
+                                width: 40px;
+                                height: 40px;
+                                margin-right: 12px;
+                            }
+                            span{
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                font-size: $fontJ;
                             }
                         }
                     }
