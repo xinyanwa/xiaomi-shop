@@ -1,6 +1,6 @@
 // 引入模块
 import Vue from 'vue';
-import { Icon } from 'element-ui';
+import { Icon, Carousel } from 'element-ui';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -13,7 +13,7 @@ import './assets/css/config.scss';
 
 Vue.config.productionTip = false;
 
-Vue.use(Icon);
+Vue.use(Icon, Carousel);
 
 new Vue({
   router,
