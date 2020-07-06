@@ -14,6 +14,16 @@
                            <span>{{item}}</span>
                            <i class="el-icon-arrow-right"></i>
                        </a>
+                       <div class="childer">
+                           <ul v-for="(item, index) in childer" :key="index">
+                               <li v-for="(info, number) in item" :key="number">
+                                   <a href="">
+                                       <img :src="info.img" alt="">
+                                       <span>{{info.title}}</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </div>
                    </li>
                </ul>
            </div>
@@ -68,6 +78,15 @@ export default {
         '健康 儿童',
         '耳机 音响',
         '生活 箱包',
+      ],
+      childer: [
+        [
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' }, { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+        ],
       ],
     };
   },
@@ -127,6 +146,15 @@ export default {
                                 font-size: 16px;
                                 line-height: 16px;
                                 color: #e0e0e0;
+                            }
+                        }
+                        .childer{
+                            position: absolute;
+                            @include flex();
+                            margin-left: 460px;
+                            ul{
+                                @include flex();
+                                flex-direction: column;
                             }
                         }
                     }
