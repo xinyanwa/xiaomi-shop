@@ -9,7 +9,10 @@
            </swiper>
            <div class="category-list">
                <ul>
-                   <li class="category-item" v-for="(item, index) in categoryList" :key="index">
+                   <li class="category-item"
+                       v-for="(item, index) in categoryList" :key="index"
+                       @mouseenter="showChilderList(index)"
+                       @mouseleave="hideChilderList(index)">
                        <a href="">
                            <span>{{item}}</span>
                            <i class="el-icon-arrow-right"></i>
@@ -17,12 +20,33 @@
                    </li>
                </ul>
            </div>
-           <div class="childer">
+           <div class="childer" v-show="showChilder">
                <ul v-for="(item, index) in childer" :key="index">
                    <li v-for="(info, number) in item" :key="number">
                        <a href="">
                            <img :src="info.img" alt="">
                            <span>{{info.title}}</span>
+                       </a>
+                   </li>
+               </ul>
+           </div>
+       </div>
+       <div class="hero-sub">
+           <div class="function-menu">
+               <ul>
+                   <li v-for="(item, index) in menuList" :key="index">
+                       <a href="">
+                           <img :src="item.img" alt="">
+                           <span>{{item.title}}</span>
+                       </a>
+                   </li>
+               </ul>
+           </div>
+           <div class="shop-info">
+               <ul>
+                   <li v-for="(item, index) in shopInfoImg" :key="index">
+                       <a href="">
+                           <img :src="item" alt="" />
                        </a>
                    </li>
                </ul>
@@ -79,31 +103,58 @@ export default {
         '耳机 音响',
         '生活 箱包',
       ],
-      childer: [
+      childer: [],
+      childerList: [
         [
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          [
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          ],
+          [
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          ],
+          [
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          ],
         ],
         [
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          [
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+            { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
+          ],
         ],
-        [
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-          { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cadc8b00dbe3b5615bd6ab657715baf.png?thumb=1&w=50&h=50&f=webp&q=90', title: 'Readmi9' },
-        ],
+      ],
+      showChilder: false,
+      menuList: [
+        { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82abdba456e8caaea5848a0cddce03db.png?w=48&h=48', title: '小米秒杀' },
+        { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/806f2dfb2d27978e33fe3815d3851fa3.png?w=48&h=48', title: '企业团购' },
+        { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/eded6fa3b897a058163e2485532c4f10.png?w=48&h=48', title: 'F码通道' },
+        { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/43a3195efa6a3cc7662efed8e7abe8bf.png?w=48&h=48', title: '米粉卡' },
+        { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f4846bca6010a0deb9f85464409862af.png?w=48&h=48', title: '以旧换新' },
+        { img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9a76d7636b08e0988efb4fc384ae497b.png?w=48&h=48', title: '花费充值' },
+      ],
+      shopInfoImg: [
+        'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d158f243b54d5ec68dd2ac72bd24555d.jpg?w=632&h=340',
+        'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fbff319c7dd00e75c9758acf248d3784.jpg?w=632&h=340',
+        'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/816a66edef10673b4768128b41804cae.jpg?w=632&h=340',
       ],
     };
   },
@@ -111,11 +162,23 @@ export default {
     Swiper,
     SwiperSlide,
   },
+  methods: {
+    showChilderList(index) {
+      console.log(index);
+      this.childer = this.childerList[index];
+      this.showChilder = true;
+    },
+    hideChilderList(index) {
+      console.log(index);
+      this.showChilder = false;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
     .banner-wrapper{
+        padding-bottom: 26px;
         .banner-carousel{
             width: $min-width;
             margin: 0 auto;
@@ -174,10 +237,11 @@ export default {
                 left: 235px;
                 @include flex();
                 max-width: 992px;
-                height: 458px;
+                height: 460px;
                 z-index: 99;
                 background: #fff;
-                box-shadow: 0 8px 16px rgba(0,0,0,.18);
+                box-shadow: 0 10px 16px rgba(0,0,0,.18);
+                // box-shadow:8px 8px 16px -8px rgba(0,0,0,.18),8px -8px 16px -8px  rgba(0,0,0,.18);
                 ul{
                     @include flex();
                     flex-direction: column;
@@ -186,10 +250,18 @@ export default {
                     li{
                         @include flex();
                         width: 100%;
+                        &:hover{
+                            a{
+                                span{
+                                    color: $colorA;
+                                }
+                            }
+                        }
                         a{
                             padding: 18px 20px;
                             color: $colorB;
-                            @include flex(center);
+                            width: 100%;
+                            @include flex(flex-start, center);
                             img{
                                 width: 40px;
                                 height: 40px;
@@ -200,6 +272,67 @@ export default {
                                 text-overflow: ellipsis;
                                 overflow: hidden;
                                 font-size: $fontJ;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .hero-sub{
+            padding-top: 14px;
+            display: flex;
+            .function-menu{
+                width: 234px;
+                background: #5f5750;
+                ul{
+                    @include flex();
+                    flex-wrap: wrap;
+                    li{
+                        width: 70px;
+                        height: 82px;
+                        @include flex();
+                        &:hover{
+                            a{
+                                span{
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                        a{
+                            @include flex(center);
+                            flex-direction: column;
+                            text-align: center;
+                            width: 100%;
+                            height: 100%;
+                            img{
+                                width: 24px;
+                                height: 24px;
+                            }
+                            span{
+                                color: #fff;
+                                opacity: .7;
+                                margin-top: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+            .shop-info{
+                padding-left: 14px;
+                ul{
+                    @include flex();
+                    width: 100%;
+                    li{
+                        width: 316px;
+                        height: 170px;
+                        margin-right: 15px;
+                        &:last-child{
+                            margin-right: 0;
+                        }
+                        a{
+                            img{
+                                width: 316px;
+                                height: 170px;
                             }
                         }
                     }
