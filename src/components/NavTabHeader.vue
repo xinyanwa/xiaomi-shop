@@ -278,8 +278,7 @@ export default {
             ul{
               @include flex(space-around);
               list-style: none;
-              width: $min-width;
-              margin: 0 auto;
+              @include container();
               padding: 30px 0 10px 0;
               li{
                 text-align: center;

@@ -1,11 +1,13 @@
 <template>
     <div class="index-swapper">
         <Banner />
+        <FlashSale />
     </div>
 </template>
 
 <script>
 import Banner from '../components/Banner.vue';
+import FlashSale from '../components/FlashSale.vue';
 
 export default {
   name: 'Index',
@@ -23,6 +25,7 @@ export default {
   computed: {
   },
   components: {
+    FlashSale,
     Banner,
   },
   directives: {
@@ -38,8 +41,7 @@ export default {
 
 <style lang="scss" scoped>
     .index-swapper{
-        width: $min-width;
-        margin: 0 auto;
+        @include container();
         .swiper-img{
             height: 460px;
         }

@@ -13,3 +13,16 @@
     width: $wd;
     height: $hg;
 }
+
+@mixin container(){
+    width: $min-width;
+    margin: 0 auto;
+}
+
+@mixin headTitle(){
+    margin: 0;
+    font-size: $fontF;
+    font-weight: 200;
+    line-height: 58px;
+    color: $colorB;
+}

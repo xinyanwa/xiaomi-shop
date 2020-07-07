@@ -188,8 +188,7 @@ export default {
     .banner-wrapper{
         padding-bottom: 26px;
         .banner-carousel{
-            width: $min-width;
-            margin: 0 auto;
+            @include container();
             position: relative;
             .banner-img{
                  height: 460px;
@@ -301,9 +300,7 @@ export default {
                         @include flex();
                         &:hover{
                             a{
-                                span{
                                     opacity: 1;
-                                }
                             }
                         }
                         a{
@@ -312,13 +309,14 @@ export default {
                             text-align: center;
                             width: 100%;
                             height: 100%;
+                            opacity: .7;
+                            transition: opacity .2s;
                             img{
                                 width: 24px;
                                 height: 24px;
                             }
                             span{
                                 color: #fff;
-                                opacity: .7;
                                 margin-top: 5px;
                             }
                         }
@@ -336,6 +334,9 @@ export default {
                         margin-right: 15px;
                         &:last-child{
                             margin-right: 0;
+                        }
+                        &:hover{
+                            box-shadow: 0 15px 30px rgba(0,0,0,.1);
                         }
                         a{
                             img{

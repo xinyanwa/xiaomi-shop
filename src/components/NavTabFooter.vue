@@ -115,8 +115,7 @@ export default {
 <style lang="scss" scoped>
 .footer-wrapper{
   .footer-header{
-    width: $min-width;
-    margin: 0 auto;
+    @include container();
     height: 80px;
     border-bottom: 1px solid #e0e0e0;
     ul{
@@ -154,8 +153,7 @@ export default {
   .footer-info{
     .footer-footer-info{
       @include flex( space-between, '');
-      width: $min-width;
-      margin: 0 auto;
+      @include container();
       padding: 20px 0;
       dl{
         dt{
@@ -233,8 +231,7 @@ export default {
   height: 170px;
   padding: 30px 0;
   .site-wrapper{
-    width: $min-width;
-    margin: 0 auto;
+    @include container();
     position: relative;
     .log{
       @include bgPosition(57px,57px,0,0,'','https://s01.mifile.cn/i/logo-footer.png?v2')
