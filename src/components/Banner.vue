@@ -20,7 +20,9 @@
                    </li>
                </ul>
            </div>
-           <div class="childer" v-show="showChilder">
+           <div class="childer" v-show="showChilder"
+                @mouseenter="showChildershow"
+                @mouseleave="hideChildershow">
                <ul v-for="(item, index) in childer" :key="index">
                    <li v-for="(info, number) in item" :key="number">
                        <a href="">
@@ -167,6 +169,12 @@ export default {
       console.log(index);
       this.childer = this.childerList[index];
       this.showChilder = true;
+    },
+    showChildershow() {
+      this.showChilder = true;
+    },
+    hideChildershow() {
+      this.showChilder = false;
     },
     hideChilderList(index) {
       console.log(index);
