@@ -288,6 +288,7 @@ export default {
         .hero-sub{
             padding-top: 14px;
             display: flex;
+            @include container();
             .function-menu{
                 width: 234px;
                 background: #5f5750;

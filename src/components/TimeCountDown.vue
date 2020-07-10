@@ -38,7 +38,7 @@ export default {
   methods: {
     countTime() {
       const nowDate = new Date();
-      const endDate = new Date('2020-07-09 12:50:00');
+      const endDate = new Date(this.dateNumber);
       const date = endDate - nowDate;
       if (date > 0) {
         this.day = this.checkedZero(Math.floor(date / 1000 / 60 / 60 / 24));

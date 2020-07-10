@@ -26,3 +26,9 @@
     line-height: 58px;
     color: $colorB;
 }
+
+@mixin textHidden() {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
