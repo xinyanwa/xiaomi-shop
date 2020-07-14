@@ -3,6 +3,7 @@
         <div class="box-wrapper">
             <div class="head-text">
                 <h2 class="title">手机</h2>
+                <phone-header-item :shop-category-list="shopCategoryList"/>
             </div>
             <div class="box-phone">
                 <div class="left-phone">
@@ -34,10 +35,11 @@
 
 <script>
 import PhoneInfoItem from './PhoneInfoItem.vue';
+import PhoneHeaderItem from './PhoneHeaderItem.vue';
 
 export default {
   name: 'BoxPhoneInfo',
-  components: { PhoneInfoItem },
+  components: { PhoneHeaderItem, PhoneInfoItem },
   data() {
     return {
       leftImgData: [
@@ -126,6 +128,10 @@ export default {
           category: '电视影音',
         },
       ],
+      shopCategoryList: [
+        '热门',
+        '电视影音',
+      ],
     };
   },
 };
@@ -139,6 +145,7 @@ export default {
             @include container();
 
             .head-text {
+                @include flex();
                 .title {
                     @include headTitle();
                 }
@@ -190,7 +197,15 @@ export default {
     }
 
     .left-botton-li {
-        padding-bottom: 14px;
+        margin-bottom: 14px;
+        transform-style: preserve-3d;
+        transition: all .2s linear;
+
+        &:hover{
+            z-index: 999;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+            transform: translate3d(0, -2px, 0);
+        }
 
         &:last-child {
             padding-bottom: 0;
