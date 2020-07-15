@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import Banner from '../components/Banner.vue';
-import FlashSale from '../components/FlashSale.vue';
-import HomeBanner from '../components/HomeBanner.vue';
-import BoxPhoneInfo from '../components/BoxPhoneInfo.vue';
+import Banner from '../components/home/Banner.vue';
+import FlashSale from '../components/home/FlashSale.vue';
+import HomeBanner from '../components/home/HomeBanner.vue';
+import BoxPhoneInfo from '../components/home/BoxPhoneInfo.vue';
 
 export default {
   name: 'Index',

@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import NavTabHeader from '../components/NavTabHeader.vue';
-import NavTabFooter from '../components/NavTabFooter.vue';
+import NavTabHeader from '../components/home/NavTabHeader.vue';
+import NavTabFooter from '../components/home/NavTabFooter.vue';
 
 export default {
   name: 'HomeView',

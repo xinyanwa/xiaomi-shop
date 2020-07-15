@@ -8142,10 +8142,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-swiper@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npm.taobao.org/swiper/download/swiper-6.0.0.tgz#d69bfd2e2dc01961c32e6d6bbb7247081cf5a883"
-  integrity sha1-1pv9Li3AGWHDLm1ru3JHCBz1qIM=
+swiper@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.npm.taobao.org/swiper/download/swiper-6.0.2.tgz#24da06d7fc24589821ec2fb3c0fc91fc0022fdc8"
+  integrity sha1-JNoG1/wkWJgh7C+zwPyR/AAi/cg=
   dependencies:
     dom7 "^3.0.0-alpha.5"
     ssr-window "^3.0.0-alpha.4"

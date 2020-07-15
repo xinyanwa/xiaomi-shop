@@ -332,6 +332,7 @@ export default {
         }
       }
       .search-info{
+        height: 43px;
         i{
         position: absolute;
         top: 38px;

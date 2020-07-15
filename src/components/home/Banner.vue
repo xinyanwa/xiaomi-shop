@@ -1,12 +1,14 @@
 <template>
    <div class="banner-wrapper">
        <div class="banner-carousel">
-           <swiper :options="swiperOptions">
-               <swiper-slide v-for="(item, index) in swiperImg" :key="index">
-                   <img class="banner-img" :src="item" alt="">
-               </swiper-slide>
-               <div class="swiper-pagination" slot="pagination"></div>
-           </swiper>
+           <div v-swiper:mySwiper="swiperOption">
+               <div class="swiper-wrapper">
+                   <div class="swiper-slide" v-for="(item, index) in swiperImg" :key="index">
+                       <img class="banner-img" :src="item" alt="">
+                   </div>
+               </div>
+               <div class="swiper-pagination"></div>
+           </div>
            <div class="category-list">
                <ul>
                    <li class="category-item"
@@ -58,33 +60,15 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-import 'swiper/swiper-bundle.css';
 
 export default {
   data() {
     return {
-      swiperOptions: {
-        notNextTick: true,
-        // swiper configs 所有的配置同swiper官方api配置
-        autoplay: true,
-        speed: 1000,
-        setWrapperSize: true,
-        autoHeight: true,
-        paginationClickable: true,
-        mousewheelControl: true,
-        observeParents: true,
-        // 如果自行设计了插件，那么插件的一些配置相关参数，也应该出现在这个对象中，如下debugger
-        debugger: true,
-        loop: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
+      swiperOption: {
         pagination: {
           el: '.swiper-pagination',
-          clickable: true,
         },
+        autoplay: true,
       },
       swiperImg: [
         'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e472d8648df665bc0b2047252685cef0.jpg?w=2452&h=920',
@@ -161,8 +145,6 @@ export default {
     };
   },
   components: {
-    Swiper,
-    SwiperSlide,
   },
   methods: {
     showChilderList(index) {
@@ -180,6 +162,9 @@ export default {
       console.log(index);
       this.showChilder = false;
     },
+  },
+  mounted() {
+    this.mySwiper.slideTo(0, 5000, false);
   },
 };
 </script>
