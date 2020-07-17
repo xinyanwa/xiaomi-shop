@@ -9,6 +9,13 @@
                </div>
                <div class="swiper-pagination"></div>
            </div>
+           <!--<div>
+               <el-carousel>
+                   <el-carousel-item >
+                       <img class="banner-img" :src="item" alt="">
+                   </el-carousel-item>
+               </el-carousel>
+           </div>-->
            <div class="category-list">
                <ul>
                    <li class="category-item"
@@ -68,7 +75,11 @@ export default {
         pagination: {
           el: '.swiper-pagination',
         },
-        autoplay: true,
+        autoplay: {
+          stopOnLastSlide: true,
+          delay: 500,
+        },
+        loop: true,
       },
       swiperImg: [
         'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e472d8648df665bc0b2047252685cef0.jpg?w=2452&h=920',
@@ -318,6 +329,7 @@ export default {
                         width: 316px;
                         height: 170px;
                         margin-right: 15px;
+                        transition: .2s linear;
                         &:last-child{
                             margin-right: 0;
                         }

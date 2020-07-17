@@ -1,7 +1,9 @@
 // 引入模块
 import Vue from 'vue';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
-import { Icon, Carousel } from 'element-ui';
+import {
+  Icon, Carousel, Form, Input, Button,
+} from 'element-ui';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -15,7 +17,11 @@ import 'swiper/swiper-bundle.css';
 
 Vue.config.productionTip = false;
 
-Vue.use(Icon, Carousel);
+Vue.use(Icon);
+Vue.use(Carousel);
+Vue.use(Form);
+Vue.use(Input);
+Vue.use(Button);
 Vue.use(VueAwesomeSwiper /* { default options with global component } */);
 
 new Vue({
