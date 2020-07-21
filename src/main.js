@@ -3,6 +3,7 @@ import Vue from 'vue';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import {
   Icon, Carousel, Form, Input, Button,
+  Select, Option, OptionGroup,
 } from 'element-ui';
 import App from './App.vue';
 import router from './router';
@@ -22,6 +23,9 @@ Vue.use(Carousel);
 Vue.use(Form);
 Vue.use(Input);
 Vue.use(Button);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(OptionGroup);
 Vue.use(VueAwesomeSwiper /* { default options with global component } */);
 
 new Vue({

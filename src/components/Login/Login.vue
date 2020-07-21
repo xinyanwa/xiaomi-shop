@@ -31,6 +31,7 @@
                         <el-input
                                 class="password"
                                 v-model="password"
+                                type="password"
                                 placeholder="密码"
                         />
                     <el-button class="submit-button" :type="colorButton">登录</el-button>
@@ -41,7 +42,7 @@
                         <span><a href="">注册</a></span>
                     </p>
                     <p class="sign-up">
-                        <span><a href="">立即注册</a></span>
+                        <span @click="signUpNow"><a href="">立即注册</a></span>
                         <span class="split-line">|</span>
                         <span><a href="">忘记密码?</a></span>
                     </p>
@@ -103,6 +104,11 @@ export default {
         '隐私权限',
       ],
     };
+  },
+  methods: {
+    signUpNow() {
+      this.$router.push('/register');
+    },
   },
 };
 </script>
@@ -168,6 +174,7 @@ export default {
                     .phone-mode{
                         text-align: center;
                         margin-bottom: 30px;
+                        color: $colorA;
                         a{
                             font-size: $fontJ;
                             color: $colorA;

@@ -4,6 +4,7 @@ import Index from '../page/index.vue';
 import Login from '../page/login.vue';
 import Cart from '../page/cart.vue';
 import HomeView from '../page/HomeView.vue';
+import Register from '../components/Login/Register.vue';
 
 Vue.use(VueRouter);
 
@@ -30,6 +31,11 @@ const routes = [
     path: '/user',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
   },
 ];
 
