@@ -18,6 +18,7 @@
                             <a
                                     href="javascript:void(0);"
                                     class="mode" :class="colorMode ? '' : 'color-mode'"
+                                    @click="loginWeChat($event)"
                             >
                                 扫码登录
                             </a>
@@ -108,6 +109,10 @@ export default {
   methods: {
     signUpNow() {
       this.$router.push('/register');
+    },
+    loginWeChat(e) {
+      // e.nextSibling.style = 'none';
+      console.log(e);
     },
   },
 };
