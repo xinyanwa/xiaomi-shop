@@ -11,14 +11,14 @@
                 <el-form class="form">
                     <div class="select-mode">
                         <span @click="colorMode = true">
-                            <a href="" class="mode" :class="colorMode ? 'color-mode' : ''">账号登录</a>
+                            <a :class="colorMode ? 'color-mode' : ''" class="mode" href="">账号登录</a>
                         </span>
                         <span class="split-line"></span>
                         <span @click="colorMode = false">
                             <a
+                                    :class="colorMode ? '' : 'color-mode'"
+                                    @click="loginWeChat($event)" class="mode"
                                     href="javascript:void(0);"
-                                    class="mode" :class="colorMode ? '' : 'color-mode'"
-                                    @click="loginWeChat($event)"
                             >
                                 扫码登录
                             </a>
@@ -27,15 +27,16 @@
                     <div class="userInfo">
                         <el-input
                                 class="userName"
-                                v-model="userName"
-                                placeholder="邮箱/手机号码/小米ID"></el-input>
+                                placeholder="邮箱/手机号码/小米ID"
+                                v-model="userName"></el-input>
                         <el-input
                                 class="password"
-                                v-model="password"
-                                type="password"
                                 placeholder="密码"
+                                show-password
+                                type="password"
+                                v-model="password"
                         />
-                    <el-button class="submit-button" :type="colorButton">登录</el-button>
+                        <el-button :type="colorButton" @click="showUserInfo" class="submit-button">登录</el-button>
                     </div>
                     <p class="phone-mode">
                         <span><a href="">手机短信登录</a></span>
@@ -72,7 +73,7 @@
         <div class="login-footer">
             <div class="font-mode">
                 <ul>
-                    <li v-for="(item, index) in loginFooterInfo" :key="index">
+                    <li :key="index" v-for="(item, index) in loginFooterInfo">
                         <a href="">
                             <span>
                                 {{item}}
@@ -93,8 +94,8 @@ export default {
   name: 'Logining',
   data() {
     return {
-      userName: '',
-      password: '',
+      userName: 'xinyanwa',
+      password: '3344',
       colorMode: true,
       colorButton: 'primary',
       loginFooterInfo: [
@@ -114,6 +115,26 @@ export default {
       // e.nextSibling.style = 'none';
       console.log(e);
     },
+    showUserInfo() {
+      this.axios.get('/user/login')
+        .then((res) => {
+          window.console.log(res);
+          if (
+            res.data.data.userName === this.userName
+            && res.data.data.password === this.password) {
+            this.$message({
+              message: '登录成功',
+              type: 'success',
+            });
+            this.$router.push('/');
+          } else {
+            this.$message({
+              message: '登录失败，用户名或密码错误',
+              type: 'error',
+            });
+          }
+        });
+    },
   },
 };
 </script>
@@ -128,105 +149,130 @@ export default {
                 }
             }
         }
-        .bgimg{
+
+        .bgimg {
             width: 100%;
             height: 600px;
             position: relative;
             background-image: url("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/aece569d6689b4c461bb53efd9eea9c7.jpg");
             background-position: top center;
             background-repeat: no-repeat;
-            .login-form{
+
+            .login-form {
                 @include container();
                 display: flex;
                 justify-content: flex-end;
-                .form{
+
+                .form {
                     margin-top: 30px;
                     width: 410px;
                     background: $colorG;
-                    .select-mode{
+
+                    .select-mode {
                         padding: 40px 0 40px 0;
                         font-size: $fontE;
                         text-align: center;
-                        .split-line{
+
+                        .split-line {
                             width: 1px;
                             height: 24px;
                             border: 1px solid #e0e0e0;
                             margin: 0 35px 0 35px;
                         }
-                        a{
+
+                        a {
                             color: $colorC;
                         }
-                        .mode:hover{
+
+                        .mode:hover {
                             color: $colorA;
                         }
                     }
-                    .userInfo{
+
+                    .userInfo {
                         width: 360px;
                         margin: 0 auto;
-                        .userName{
+
+                        .userName {
                         }
-                        .password{
+
+                        .password {
                             margin-top: 14px;
                             margin-bottom: 24px;
                         }
-                        .submit-button{
+
+                        .submit-button {
                             width: 360px;
                             margin-bottom: 14px;
                             background-color: $colorA;
                             border-color: $colorA;
                         }
                     }
-                    .phone-mode{
+
+                    .phone-mode {
                         text-align: center;
                         margin-bottom: 30px;
                         color: $colorA;
-                        a{
+
+                        a {
                             font-size: $fontJ;
                             color: $colorA;
                         }
                     }
-                    .sign-up{
+
+                    .sign-up {
                         text-align: center;
                         margin-bottom: 126px;
-                        a{
+
+                        a {
                             font-size: $fontJ;
                             color: $colorD;
                         }
-                        a:hover{
+
+                        a:hover {
                             color: $colorA;
                         }
-                        .split-line{
+
+                        .split-line {
                             color: $colorD;
                             padding-left: 5px;
                             padding-right: 5px;
                         }
                     }
-                    .login-mode{
+
+                    .login-mode {
                         height: 92px;
-                        fieldset{
+
+                        fieldset {
                             border-top: 1px solid #e0e0e0;
                             border-bottom: none;
                             border-left: none;
                             border-right: none;
-                            legend{
+
+                            legend {
                                 font-size: 14px;
                                 color: #bbb;
                             }
-                            .login-icon{
+
+                            .login-icon {
                                 padding: 20px 40px;
                                 @include flex(space-around);
                                 font-size: 30px;
-                                a{
-                                    .we-chat{
+
+                                a {
+                                    .we-chat {
                                         color: #00d20d;
                                     }
-                                    .wei-bo{
+
+                                    .wei-bo {
                                         color: #d32f2f;
                                     }
-                                    .alipay{
+
+                                    .alipay {
                                         color: #0ae;
                                     }
-                                    .qq{
+
+                                    .qq {
                                         color: #0288d1;
                                     }
                                 }
@@ -236,38 +282,46 @@ export default {
                 }
             }
         }
-        .login-footer{
+
+        .login-footer {
             padding-top: 100px;
             text-align: center;
-            .font-mode{
-                ul{
+
+            .font-mode {
+                ul {
                     @include flex(center);
-                    li{
+
+                    li {
                         padding: 0 10px;
                         border-right: 1.2px solid #757575;
-                        &:last-child{
+
+                        &:last-child {
                             border-right: 0px;
                         }
-                        a{
+
+                        a {
                             font-size: 14px;
                             color: #757575;
                         }
-                        &:hover{
-                            a{
+
+                        &:hover {
+                            a {
                                 color: $colorB;
                             }
                         }
                     }
                 }
             }
-            p{
+
+            p {
                 font-size: $fontJ;
                 color: #757575;
                 padding: 10px 0;
             }
         }
     }
-    .color-mode{
+
+    .color-mode {
         color: $colorA !important;
     }
 </style>
