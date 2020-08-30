@@ -11,7 +11,7 @@
         <a href="javascript:void(0);" @click="goLoginInfo">
           <span>登录</span>
         </a>
-        <a href="javascript:void(0);">
+        <a href="javascript:void(0);" @click="goRegister">
           <span>注册</span>
         </a>
         <a href="javascript:void(0);">
@@ -114,6 +114,9 @@ export default {
     },
     goLoginInfo() {
       this.$router.push('/user');
+    },
+    goRegister() {
+      this.$router.push('/register');
     },
     goCart() {
       this.$router.push('/cart');

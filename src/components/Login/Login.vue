@@ -36,7 +36,13 @@
                                 type="password"
                                 v-model="password"
                         />
-                        <el-button :type="colorButton" @click="showUserInfo" class="submit-button">登录</el-button>
+                        <el-button
+                                :type="colorButton"
+                                @click="showUserInfo"
+                                class="submit-button"
+                        >
+                            登录
+                        </el-button>
                     </div>
                     <p class="phone-mode">
                         <span><a href="">手机短信登录</a></span>

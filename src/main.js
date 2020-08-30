@@ -3,7 +3,8 @@ import Vue from 'vue';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import {
   Icon, Carousel, Form, Input, Button,
-  Select, Option, OptionGroup, Message
+  Select, Option, OptionGroup, Message,
+  FormItem,
 } from 'element-ui';
 import App from './App.vue';
 import router from './router';
@@ -26,6 +27,7 @@ Vue.use(Button);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(OptionGroup);
+Vue.use(FormItem);
 Vue.use(VueAwesomeSwiper /* { default options with global component } */);
 
 Vue.prototype.$message = Message;
